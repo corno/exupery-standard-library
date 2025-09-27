@@ -24,26 +24,6 @@ export type Temp_Pure = {
             }
         ) => _et.Array<Key_Value_Pair<T>>
     }
-    'list': {
-        'build': <T>($: ($c: {
-            'add element': ($: T) => void
-            'add list': ($: _et.Array<T>) => void
-        }) => void) => _et.Array<T>
-    }
-    'approximate number': {
-    }
-    'integer': {}
-    'natural': {}
-    'text': {
-        'build': (
-            $: (
-                $c: {
-                    'add snippet': ($: string) => void
-                    'add character': ($: number) => void
-                }
-            ) => void
-        ) => string
-    }
 }
 
 export const $$: Temp_Pure = {
@@ -116,42 +96,5 @@ export const $$: Temp_Pure = {
             })
             return _ei.array_literal(temp)
         },
-    },
-    'list': {
-        'build': <T>($: ($c: {
-            'add element': ($: T) => void
-            'add list': ($: _et.Array<T>) => void
-        }) => void): _et.Array<T> => {
-            const temp: T[] = []
-            $({
-                'add element': ($) => {
-                    temp.push($)
-                },
-                'add list': ($) => {
-                    temp.push(...$.__get_raw_copy())
-                }
-            })
-            return _ei.array_literal(temp)
-        },
-    },
-    'approximate number': {
-    },
-    'integer': {
-    },
-    'natural': {
-    },
-    'text': {
-        'build': ($c) => {
-            let out = ""
-            $c({
-                'add snippet': ($) => {
-                    out += $
-                },
-                'add character': ($) => {
-                    out += String.fromCodePoint($)
-                }
-            })
-            return out
-        }
     },
 }
