@@ -33,11 +33,7 @@ export type Temp_Impure = {
         'serialize with decimal shift': ($: number, decimal_separator_shift: number, decimal_character: 'comma' | 'period') => string
     }
     'text': {
-        'replace all occurences': ($: string, search_value: string, replace_value: string) => string
-        'replace all occurences of all patterns': ($: string, patterns: _et.Array<{ 'search value': string, 'replace value': string }>) => string
         'split': ($: string, separator: string) => _et.Array<string>
-        'starts with': (haystack: string, needle: string, position: number) => boolean
-        'to character list': ($: string) => _et.Array<number>
         'from character list': ($: _et.Array<number>) => string
     }
 }
@@ -112,25 +108,8 @@ export const $: Temp_Impure = {
         },
     },
     'text': {
-        'replace all occurences': ($, search_value, replace_value) => {
-            return $.replaceAll(search_value, replace_value)
-        },
-        'replace all occurences of all patterns': ($, patterns) => {
-            let current = $
-            patterns.__for_each(($) => {
-                current = current.replaceAll($['search value'], $['replace value'])
-            })
-            return current
-        },
         'split': ($, separator) => {
             return _ei.array_literal($.split(separator))
-        },
-        'to character list': ($) => {
-            const out: number[] = []
-            for (let i = 0; i < $.length; i++) {
-                out.push($.charCodeAt(i))
-            }
-            return _ei.array_literal(out)
         },
         'from character list': ($) => {
             let out = ""
@@ -139,8 +118,5 @@ export const $: Temp_Impure = {
             })
             return out
         },
-        'starts with': (haystack: string, needle: string, position: number) => {
-            return haystack.startsWith(needle, position)
-        }
     },
 }
