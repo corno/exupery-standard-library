@@ -9,7 +9,7 @@
   ],
   "dependencies": {
     "exupery-core-alg": "^0.1.7",
-    "exupery-core-dev": "^0.1.1"
+    "exupery-core-dev": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^24.5.2"
