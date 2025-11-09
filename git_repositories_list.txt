@@ -1,0 +1,8 @@
+Repository: exupery-standard-library
+Path: /home/corno/workspace/pareto-canon/packages/exupery-standard-library
+Last Commit: 2025-11-07 (ba0f278)
+Message: new version
+Branch: main
+Remote: git@github.com:corno/exupery-standard-library
+-------------------------------------------------
+
