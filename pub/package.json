@@ -1,6 +1,6 @@
 {
   "name": "exupery-standard-library",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A library providing standard functions for the Exupery programming Language",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,9 +8,6 @@
     "dist"
   ],
   "dependencies": {
-    "exupery-core-alg": "^0.5.0"
-  },
-  "devDependencies": {
-    "@types/node": "^24.9.1"
+    "exupery-core-alg": "^0.5.4"
   }
 }
